@@ -207,7 +207,6 @@ export class Installer extends EventEmitter implements IInstaller {
       args = ['install']
     }
     if (isNpmCommand(exePath)) {
-      args.push('--omit=dev')
       args.push('--legacy-peer-deps')
       args.push('--no-global')
     }
