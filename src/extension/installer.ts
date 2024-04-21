@@ -238,7 +238,7 @@ export class Installer extends EventEmitter implements IInstaller {
       const child = child_process.spawn(this.npm, args, {
         cwd: folder,
         shell: process.platform === 'win32',
-        env: Object.assign(process.env, { NODE_ENV: 'production' })
+        env: Object.assign(process.env, { NODE_ENV: `production=${false}` })
       })
       this.readLines('[npm stdout]', child.stdout)
       this.readLines('[npm stderr]', child.stderr)
