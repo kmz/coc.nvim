@@ -272,9 +272,6 @@ export class Installer extends EventEmitter implements IInstaller {
       })
       this.log(`Extension download at ${downloadFolder}`)
       let obj = loadJson(path.join(downloadFolder, 'package.json')) as any
-      await new Promise((resolve) => {
-        setTimeout(resolve,100000)
-      })
       await this.installDependencies(downloadFolder, getDependencies(obj))
     } catch (e) {
       fs.rmSync(downloadFolder, { recursive: true, force: true })
